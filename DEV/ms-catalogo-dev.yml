@@ -1,0 +1,20 @@
+# Discovery Server Access
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:2222/eureka
+  instance:
+    statusPageUrlPath: /infoCatalogo
+    healthCheckUrlPath: /healthCatalogo
+    metadataMap:
+      appOwner: valderasroldan
+      description: aplicación ejemplo microservicios
+
+# HTTP Server
+server:
+  port: ${PORT:1111}   # HTTP (Tomcat) port
+
+security:
+  oauth2:
+    resource:
+      user-info-uri: http://localhost:7777/user
