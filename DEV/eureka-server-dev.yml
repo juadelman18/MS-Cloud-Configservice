@@ -1,19 +1,18 @@
 server:
   port: 8761
 
-eureka:
-  instance:
-    hostname: localhost
-  client:
-    registerWithEureka: false
+eureka: 
+  client: 
     fetchRegistry: false
-    serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
-	server:
-      waitTimeInMsWhenSyncEmpty: 0
-	  
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"	  
+    registerWithEureka: false
+    serviceUrl: 
+      defaultZone: "http://localhost:${server.port}/eureka/"
+  instance: 
+    hostname: localhost
+  server: 
+    waitTimeInMsWhenSyncEmpty: 0
+management: 
+  endpoints: 
+    web: 
+      exposure: 
+        include: "*"
