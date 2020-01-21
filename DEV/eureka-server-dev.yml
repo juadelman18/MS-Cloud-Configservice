@@ -2,21 +2,28 @@ server:
   port: 8761
 
 eureka: 
+  instance:
+    hostname: localhost
+    health-check-url-path: /actuator/health
+    status-page-url-path: /actuator/info
+    nonSecurePortEnabled: false
+    securePortEnabled: true
+    initialStatus: UNKNOWN
+    metadataMap:
+      appOwner: adm
+      description: EUREKA SERVER
   client: 
     fetchRegistry: false
     registerWithEureka: false
     healthcheck:
       enabled: true
-  instance: 
-    nonSecurePortEnabled: false
-    securePortEnabled: true
-    initialStatus: UNKNOWN
-    virtualHostName: otro
-    metadataMap:
-      appOwner: adm
-      description: EUREKA SERVER
   server: 
     waitTimeInMsWhenSyncEmpty: 0
+
+logging:
+  com.netflix.discovery: 'ON'
+  org.springframework.cloud: 'DEBUG'
+
 management: 
   endpoints: 
     web: 
