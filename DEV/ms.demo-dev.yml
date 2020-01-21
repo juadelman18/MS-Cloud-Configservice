@@ -20,8 +20,3 @@ eureka:
 logging:
   com.netflix.discovery: 'ON'
   org.springframework.cloud: 'DEBUG'
-
-security:
-  oauth2:
-    resource:
-      user-info-uri: http://localhost:7777/user
