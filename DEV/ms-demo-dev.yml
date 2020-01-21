@@ -6,8 +6,9 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: "http://${eureka.instance.hostname}:8761/eureka/"
   instance:
+    hostname: localhost
     statusPageUrlPath: /info
     healthCheckUrlPath: /health
     metadataMap:
