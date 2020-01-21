@@ -9,8 +9,8 @@ eureka:
       defaultZone: "http://${eureka.instance.hostname}:8761/eureka/"
   instance:
     hostname: localhost
-    statusPageUrlPath: /info
-    healthCheckUrlPath: /health
+    statusPageUrlPath: /actuator/info
+    healthCheckUrlPath: /actuator/health
     metadataMap:
       appOwner: adm
       description: aplicación ejemplo microservicios
