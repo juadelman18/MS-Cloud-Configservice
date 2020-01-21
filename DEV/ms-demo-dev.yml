@@ -5,6 +5,3 @@ server:
 # Discovery Server Access
 
 
-logging:
-  com.netflix.discovery: 'ON'
-  org.springframework.cloud: 'DEBUG'
