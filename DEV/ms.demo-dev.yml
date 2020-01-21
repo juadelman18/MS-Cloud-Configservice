@@ -1,19 +1,25 @@
+# HTTP Server
+server:
+  port: ${PORT:1111}   # HTTP (Tomcat) port
 
 # Discovery Server Access
 eureka:
   client:
+    registerWithEureka: false
+    fetchRegistry: false
     serviceUrl:
       defaultZone: http://localhost:8761/eureka
   instance:
-    statusPageUrlPath: /actuator
-    healthCheckUrlPath: /info
+    hostname: localhost
+    statusPageUrlPath: /actuator/health
+    healthCheckUrlPath: /actuator/info
     metadataMap:
       appOwner: adm
       description: aplicación ejemplo microservicios
 
-# HTTP Server
-server:
-  port: ${PORT:1111}   # HTTP (Tomcat) port
+logging:
+  com.netflix.discovery: 'ON'
+  org.springframework.cloud: 'DEBUG'
 
 security:
   oauth2:
