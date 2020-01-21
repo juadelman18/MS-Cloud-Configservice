@@ -8,9 +8,6 @@ eureka:
     healthcheck:
       enabled: true
   instance: 
-    hostname: localhost
-    statusPageUrlPath: /actuator/health
-    healthCheckUrlPath: /actuator/info
     nonSecurePortEnabled: false
     securePortEnabled: true
     initialStatus: UNKNOWN
