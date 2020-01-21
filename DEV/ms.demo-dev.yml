@@ -13,6 +13,10 @@ eureka:
     hostname: localhost
     statusPageUrlPath: /actuator/health
     healthCheckUrlPath: /actuator/info
+    nonSecurePortEnabled: false
+    securePortEnabled: true
+    initialStatus: UNKNOWN
+    virtualHostName: otro
     metadataMap:
       appOwner: adm
       description: aplicación ejemplo microservicios
