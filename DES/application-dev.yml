@@ -1,0 +1,9 @@
+app:
+  eureka-server: localhost
+  eureka-port: 9000
+
+server:
+  error:
+    include-message: always
+    
+    
