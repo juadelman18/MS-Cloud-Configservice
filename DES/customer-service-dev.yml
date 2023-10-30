@@ -13,7 +13,7 @@ spring:
 
   ######################## Conexion Mysql ########################
   datasource:
-    url : jdbc:mysql://localhost:3306/academia-adm?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    url : jdbc:mysql://localhost:3306/ecommerce-adm?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
     username: admdb
     password : mancilla01
     driver-class-name: com.mysql.jdbc.Driver
