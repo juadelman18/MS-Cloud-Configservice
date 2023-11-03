@@ -1,6 +1,6 @@
 app:
   eureka-server: localhost
-  eureka-port: 9000
+  eureka-port: 9002
 
 server:
   error:
