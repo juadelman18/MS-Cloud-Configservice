@@ -18,7 +18,7 @@ eureka:
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
-      defaultZone: htt://${app.eureka-server}:{app.eureka-port}/eureka/
+      defaultZone: http://${app.eureka-server}:{app.eureka-port}/eureka/
     server:
       waitTimeInMsWhenSyncEmpty: 0
       response-cache-update-interval-ms: 5000
