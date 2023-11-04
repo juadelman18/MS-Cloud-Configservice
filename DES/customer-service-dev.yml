@@ -58,7 +58,7 @@ management:
 eureka:
     client:
         serviceUrl:
-            defaultZone: http://${app.eureka-server}:${app.eureka-port}/eureka
+            defaultZone: http://localhost:9002/eureka
         initialInstanceInfoReplicationIntervalSeconds: 5
         registryFetchIntervalSeconds: 5
     instance:
