@@ -9,15 +9,7 @@ spring:
   banner:
     charset : UTF-8
     location : classpath:banner.txt
-
-
-  ######################## Conexion Mysql ########################
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url : jdbc:mysql://localhost:3306/ecommerce-adm?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
-    username: admdb
-    password : mancilla01    
-
+######################## Conexion Mysql ########################
   jpa:
     database-platform : org.hibernate.dialect.MySQL8Dialect
     show-sql : true
