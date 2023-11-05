@@ -11,6 +11,9 @@ spring:
     location : classpath:banner.txt
 
 eureka:
+  instance:
+    hostname: ${app.eureka-server}
+    leaseRenewalintervalInSeconds: 30
   client: 
     register-with-eureka: false
     fetch-registry: false
