@@ -13,16 +13,25 @@ spring:
 eureka:
   instance:
     hostname: ${app.eureka-server}
-    leaseRenewalintervalInSeconds: 30
-  client:
-    registerWithEureka: false
+    health-check-url-path: /actuator/health
+    status-page-url-path: /actuator/info
+    nonSecurePortEnabled: false
+    securePortEnabled: true
+    initialStatus: UNKNOWN
+    metadataMap:
+      appOwner: adm
+      description: EUREKA SERVER
+  client: 
     fetchRegistry: false
-    server:
-      waitTimeInMsWhenSyncEmpty: 0
-      response-cache-update-interval-ms: 5000
-      enable-self-preservation: true
-      renewalPercentThreshold: 0.49
+    registerWithEureka: false
+    healthcheck:
+      enabled: true
+  server: 
+    waitTimeInMsWhenSyncEmpty: 0
 ######################## SALUD  ########################
+logging:
+  com.netflix.discovery: 'ON'
+  org.springframework.cloud: 'DEBUG'
 management:
   endpoint:
     web:
