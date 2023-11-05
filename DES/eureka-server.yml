@@ -12,9 +12,11 @@ spring:
 
 eureka:
   client: 
-    registerWithEureka: false
-    fetchRegistry: false   
-  server: 
+    register-with-eureka: false
+    fetch-registry: false   
+  server:
+    eviction-interval-timer-in-ms: 1000
+    max.time.for.replication: 30000
     waitTimeInMsWhenSyncEmpty: 0
 ######################## SALUD  ########################
 logging:
