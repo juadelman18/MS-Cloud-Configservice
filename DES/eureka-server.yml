@@ -11,16 +11,6 @@ spring:
     location : classpath:banner.txt
 
 eureka:
-  instance:
-    hostname: ${app.eureka-server}
-    health-check-url-path: /actuator/health
-    status-page-url-path: /actuator/info
-    nonSecurePortEnabled: false
-    securePortEnabled: true
-    initialStatus: UNKNOWN
-    metadataMap:
-      appOwner: adm
-      description: EUREKA SERVER
   client: 
     fetchRegistry: false
     registerWithEureka: false
