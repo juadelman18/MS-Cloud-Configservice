@@ -13,7 +13,7 @@ spring:
 eureka:
   client: 
     fetchRegistry: false
-    registerWithEureka: false
+    register-with-eureka: false
     healthcheck:
       enabled: true
   server: 
