@@ -15,7 +15,7 @@ eureka:
     register-with-eureka: false
     fetch-registry: false
     serviceUrl:
-      defaultZone: http://localhost:${server.port}/eureka/
+      defaultZone: http://localhost:${app.eureka-port}/eureka/
   server:
     eviction-interval-timer-in-ms: 1000
     max.time.for.replication: 30000
