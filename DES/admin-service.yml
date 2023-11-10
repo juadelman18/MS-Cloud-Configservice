@@ -1,0 +1,123 @@
+server:
+  port: 9002
+
+application:
+  version : 1.0.0
+  title : "Admin Serrvice Monitor"
+
+spring:
+  allowed:
+    origin:
+      http://adm-dev:9002/
+  application:
+    admin:
+      enabled: true
+  main:
+    allow-bean-definition-overriding: true
+  ######################## BANNER  ########################
+  banner:
+    charset : UTF-8
+    location : classpath:banner.txt
+  ########################  Customize UI ########################
+  boot:
+    admin:
+      ui:
+        title: ADM-DigitalCloud
+        brand: Application Monitoring springAdmin
+      routes:
+        endpoints: env, metrics, trace, jolokia, info, configprops
+
+      monitor:
+        status-interval: 20
+      client:
+        enabled: true
+        url: http://adm-dev:9002
+        instance:
+          service-url: http://adm-dev:${server.port}
+  ######################## NOTIFICACIONES ########################
+      ######################## Email Notifications  ######################## 
+      notify:
+        mail:
+          from: alexpruebaapp@gmail.com
+          to: jdelgadomancilla@gmail.com
+          cc: alexpruebasapp@gmail.com
+          ignore-changes: “UNKNOWN:UP”
+          template: "classpath:/mailTemplate/status-changed.html"
+          enabled : true
+      ######################## Slack Notifications  ########################    
+        slack:
+          enabled: true
+          ignore-changes: <from-status>:<to-status>
+          webhook-url: https://hooks.slack.com/services/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
+          channel: Monitorizacion
+          username: Spring Cloud Admin
+          message: "*#{instance.registration.name}* (#{instance.id}) is *#{event.statusInfo.status}*"
+      ######################## Teams Notifications  ########################
+        ms-teams:
+          enabled: true
+          webhook-url:
+          deRegisteredTitle: "Spring Admin"
+          registeredTitle: "Monitorizacion"
+          statusChangedTitle: "estado Cambiado"
+          messageSummary: "Notificación de administrador de Spring Boot"
+          theme_color: {event.type == 'STATUS_CHANGED' ? (event.statusInfo.status=='UP' ? '6db33f' : 'b32d36') : '439fe0'}
+          deregister_activity_subtitle: {instance.registration.name} with id {instance.id} has de-registered from Spring Boot Admin
+          register_activity_subtitle: {instance.registration.name} with id {instance.id} has registered with Spring Boot Admin
+          status_activity_subtitle: {instance.registration.name} with id {instance.id} changed status from {lastStatus} to {event.statusInfo.status}
+  
+  
+########################  Servico Auto Descubrimiento ########################
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://${app.eureka-server}:${app.eureka-port}/eureka/
+    initialInstanceInfoReplicationIntervalSeconds: 5
+    registryFetchIntervalSeconds: 5
+  instance:
+    leaseRenewalIntervalInSeconds: 5
+    leaseExpirationDurationInSeconds: 5
+
+  ######################## GMAIL ########################
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: alexpruebaapp@gmail.com
+    password: dqglajxfvolhlfef
+    test-connection: true
+    smtp:
+      connectiontimeout: 5000
+      timeout: 5000
+      writetimeout: 5000
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+    
+  ######################## METRICAS  ########################
+  management:
+    endpoints:
+      web:
+        exposure:
+          include: "*"
+      shutdown:
+        enabled: true
+      health:
+        enabled: true
+      env:
+        enabled: true
+      auditevents:
+        enabled: true
+      flyway:
+        enabled: true
+
+  ######################## SEGURITY  ########################
+  #spring.security.user.name=admin
+  #spring.security.user.password=admin
+  #spring.boot.admin.client.username=${spring.security.user.name}
+  #spring.boot.admin.client.password=${spring.security.user.password}
+  #configs to give secured server info
+  #spring.boot.admin.client.instance.metadata.user.name=${spring.security.user.name}
+  #spring.boot.admin.client.instance.metadata.user.password=${spring.security.user.password}
